@@ -5,5 +5,7 @@ package com.sample.service;
  */
 public interface SampleService {
 
+    String getUrl();
+
     void testAppProperty();
 }

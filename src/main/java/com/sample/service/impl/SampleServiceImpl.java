@@ -20,6 +20,7 @@ public class SampleServiceImpl implements SampleService {
     private String url;
 
 
+    @Override
     public String getUrl() {
         return url;
     }
