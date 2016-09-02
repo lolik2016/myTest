@@ -7,5 +7,5 @@ public interface SampleService {
 
     String getUrl();
 
-    void testAppProperty();
+    void testMyApp();
 }

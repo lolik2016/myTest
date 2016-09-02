@@ -31,7 +31,10 @@ public class SampleServiceImpl implements SampleService {
 
     @PostConstruct
     @Override
-    public void testAppProperty() {
+    public void testMyApp() {
         LOGGGER.info("Url is: {}",url);
+
+
+
     }
 }
