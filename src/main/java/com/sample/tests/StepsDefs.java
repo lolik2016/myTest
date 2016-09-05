@@ -1,8 +1,10 @@
 package com.sample.tests;
 
+
 import com.sample.commons.AbstractStepsDefs;
 import com.sample.commons.DataKeys;
 import com.sample.commons.ScenarioContext;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,9 +13,15 @@ public class StepsDefs extends AbstractStepsDefs {
     @Autowired
     ScenarioContext scenarioContext;
 
-    @Given("there is a valid gmail user")
-    public void thereIsAValidGmailUser{
+    @Given("^there is a valid gmail user$")
+    public void thereIsAValidGmailUser(){
         scenarioContext.saveData(DataKeys.GMAIL_USER, "GMAIL_USER");
     }
-    
+
+    @And("^user login to the gmail page$")
+    public void userLoginToTheGmailPage() throws Throwable {
+        String user = (String) scenarioContext.getData(DataKeys.GMAIL_USER);
+        loggger.info("super puper user is [{}]", user);
+
+    }
 }
