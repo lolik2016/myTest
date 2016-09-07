@@ -40,6 +40,7 @@ public class MyBrowserServiceImpl implements MyBrowserService {
         switch (browser){
             case "firefox" :
                 webDriver = new FirefoxDriver();
+                break;
             default:
                 LOGGGER.info("WebDriver has already initialized");
 

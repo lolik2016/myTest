@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
+@Component("scenarioContext")
 public class ScenarioContext {
 
     private static final Map<String, Object> data = new HashMap<>();

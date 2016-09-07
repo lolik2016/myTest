@@ -1,5 +1,6 @@
 Feature: my first test
 
+  @x
   Scenario: first
     Given there is a valid gmail user
     And user login to the gmail page
