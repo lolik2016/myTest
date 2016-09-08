@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="com.sample.persistent" />
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+    <!--<persistence-unit name="COLIBRI" transaction-type="RESOURCE_LOCAL">-->
+        <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+
+        <!--<properties>-->
+            <!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>-->
+            <!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/carshop"/>-->
+            <!--<property name="hibernate.connection.username" value="root"/>-->
+            <!--<property name="hibernate.connection.password" value="root"/>-->
+            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>-->
+            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
+        <!--</properties>-->
+    <!--</persistence-unit>-->
+</beans>

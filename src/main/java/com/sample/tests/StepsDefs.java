@@ -8,8 +8,6 @@ import com.sample.service.MyBrowserService;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
@@ -31,9 +29,9 @@ public class StepsDefs extends AbstractStepsDefs {
     public void thereIsAValidGmailUser(){
         scenarioContext.saveData(DataKeys.GMAIL_USER, "GMAIL_USER");
 //        WebDriver driver = myBrowserService.getDriver();
-        driver = new FirefoxDriver();
 
-        driver.navigate().to("google.com");
+   //   driver = new FirefoxDriver();
+   //   driver.navigate().to("google.com");
     }
 
     @And("^user login to the gmail page$")
