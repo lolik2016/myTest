@@ -1,4 +1,4 @@
-package com.sample.persistent.model;
+package com.main.persistent.model;
 
 
 import javax.persistence.Column;

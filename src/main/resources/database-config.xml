@@ -8,9 +8,10 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="com.sample.persistent" />
+    <context:component-scan base-package="com.main.persistent" />
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
+
 
 
     <!--<persistence-unit name="COLIBRI" transaction-type="RESOURCE_LOCAL">-->

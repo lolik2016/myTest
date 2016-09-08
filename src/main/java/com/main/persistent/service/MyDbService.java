@@ -1,4 +1,4 @@
-package com.sample.persistent.service;
+package com.main.persistent.service;
 
 /**
  * Created by avilicinschii on 08.09.2016.
