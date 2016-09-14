@@ -8,22 +8,32 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="com.main.persistent" />
+    <context:component-scan base-package="com.main.persistent"/>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <bean id="entityManagerFactoryMyDB" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSourceMyDB"/>
+        <property name="packagesToScan" value="dataSourceMyDB"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+    </bean>
+<bean id ="transactionManagerMyDB" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory"
+</bean>
 
 
     <!--<persistence-unit name="COLIBRI" transaction-type="RESOURCE_LOCAL">-->
-        <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+    <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
 
-        <!--<properties>-->
-            <!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>-->
-            <!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/carshop"/>-->
-            <!--<property name="hibernate.connection.username" value="root"/>-->
-            <!--<property name="hibernate.connection.password" value="root"/>-->
-            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>-->
-            <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
-        <!--</properties>-->
+    <!--<properties>-->
+    <!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>-->
+    <!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/carshop"/>-->
+    <!--<property name="hibernate.connection.username" value="root"/>-->
+    <!--<property name="hibernate.connection.password" value="root"/>-->
+    <!--<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>-->
+    <!--<property name="hibernate.hbm2ddl.auto" value="update"/>-->
+    <!--</properties>-->
     <!--</persistence-unit>-->
 </beans>
