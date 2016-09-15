@@ -4,7 +4,9 @@
        xmlns="http://www.springframework.org/schema/beans"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
@@ -19,10 +21,27 @@
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
     </bean>
-<bean id ="transactionManagerMyDB" class="org.springframework.orm.jpa.JpaTransactionManager">
-    <property name="entityManagerFactory" ref="entityManagerFactory"
-</bean>
+    <bean id="transactionManagerMyDB" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
 
+    <!---->
+    <beans profile="file">
+        <bean id="dataSourceMyDB" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="${jdbc.driverClassName}"/>
+            <property name="url" value="${file.mybd.jdbc.url}"/>
+            <property name="username" value="${file.mybd.jdbc.username}"/>
+            <property name="password" value="${file.mybd.jdbc.password}"/>
+        </bean>
+    </beans>
+    <beans profile="mem">
+        <bean id="dataSourceMyDB" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="driverClassName" value="${jdbc.driverClassName}"/>
+            <property name="url" value="${mem.mybd.jdbc.url}"/>
+            <property name="username" value="${mem.mybd.jdbc.username}"/>
+            <property name="password" value="${mem.mybd.jdbc.password}"/>
+        </bean>
+    </beans>
 
     <!--<persistence-unit name="COLIBRI" transaction-type="RESOURCE_LOCAL">-->
     <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->

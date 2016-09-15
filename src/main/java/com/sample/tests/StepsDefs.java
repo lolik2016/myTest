@@ -28,7 +28,7 @@ public class StepsDefs extends AbstractStepsDefs {
     @Given("^there is a valid gmail user$")
     public void thereIsAValidGmailUser(){
         scenarioContext.saveData(DataKeys.GMAIL_USER, "GMAIL_USER");
-//        WebDriver driver = myBrowserService.getDriver();
+   //   WebDriver driver = myBrowserService.getDriver();
 
    //   driver = new FirefoxDriver();
    //   driver.navigate().to("google.com");
