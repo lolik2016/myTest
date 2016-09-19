@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="t_user")
-public class user {
+public class User {
 
     @Id
     @Column(name="id")
@@ -28,10 +28,10 @@ public class user {
     @Column(name="surname")
     private String surname;
 
-    public user() {
+    public User() {
     }
 
-    public user(Long id, String userName, String name, String surname) {
+    public User(Long id, String userName, String name, String surname) {
         this.id = id;
         this.userName = userName;
         this.name = name;
