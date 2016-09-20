@@ -12,4 +12,8 @@ Feature: my first test
 #    Then new message box was closed
 
 
+  @x
+  Scenario: db
+    Given create new 'username' user
+
 

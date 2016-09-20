@@ -40,4 +40,10 @@ public class StepsDefs extends AbstractStepsDefs {
         loggger.info("super puper user is [{}]", user);
 
     }
+
+    @Given("^create new '(.+)' user$")
+    public void createNewUsernameUser(String username) throws Throwable {
+        
+
+    }
 }
