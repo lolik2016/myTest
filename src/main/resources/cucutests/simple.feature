@@ -12,7 +12,7 @@ Feature: my first test
 #    Then new message box was closed
 
 
-  @x
+  @x2
   Scenario: db
     Given create new 'username' user
 

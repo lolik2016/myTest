@@ -8,6 +8,4 @@ import com.main.persistent.model.User;
 public interface MyDbService {
 
  User createNewUser(String userName);
-
-
 }

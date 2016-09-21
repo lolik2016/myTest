@@ -26,14 +26,14 @@
     </bean>
 
     <!---->
-    <beans profile="file">
+    <!--<beans profile="file">-->
         <bean id="dataSourceMyDB" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="${jdbc.driverClassName}"/>
             <property name="url" value="${file.mybd.jdbc.url}"/>
             <property name="username" value="${file.mybd.jdbc.username}"/>
             <property name="password" value="${file.mybd.jdbc.password}"/>
         </bean>
-    </beans>
+    <!--</beans>
     <beans profile="mem">
         <bean id="dataSourceMyDB" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="${jdbc.driverClassName}"/>
@@ -42,7 +42,7 @@
             <property name="password" value="${mem.mybd.jdbc.password}"/>
         </bean>
     </beans>
-
+-->
     <!--<persistence-unit name="COLIBRI" transaction-type="RESOURCE_LOCAL">-->
     <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
 

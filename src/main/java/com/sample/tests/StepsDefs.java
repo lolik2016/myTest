@@ -1,6 +1,8 @@
 package com.sample.tests;
 
 
+import com.main.persistent.model.User;
+import com.main.persistent.service.MyDbService;
 import com.sample.commons.AbstractStepsDefs;
 import com.sample.commons.DataKeys;
 import com.sample.commons.ScenarioContext;
@@ -23,6 +25,9 @@ public class StepsDefs extends AbstractStepsDefs {
     @Autowired
     MyBrowserService myBrowserService;
 
+    @Autowired
+    MyDbService myDbService;
+
     WebDriver driver =null;
 
     @Given("^there is a valid gmail user$")
@@ -43,7 +48,9 @@ public class StepsDefs extends AbstractStepsDefs {
 
     @Given("^create new '(.+)' user$")
     public void createNewUsernameUser(String username) throws Throwable {
-        
+
+        User test = myDbService.createNewUser("test");
+        loggger.info("User: [{}]", test);
 
     }
 }
