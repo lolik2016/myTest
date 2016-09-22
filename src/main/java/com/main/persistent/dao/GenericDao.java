@@ -7,9 +7,6 @@ import java.util.List;
 
 public interface GenericDao <T, I extends Serializable> {
 
-    /** Сохранить объект newInstance в базе данных */
-    I create(T newInstance);
-
     Session session();
 
     /** Извлечь объект, предварительно сохраненный в базе данных, используя
@@ -20,6 +17,7 @@ public interface GenericDao <T, I extends Serializable> {
 
     List<T> getAll();
 
+    /** Сохранить объект newInstance в базе данных */
     T persist(T entity);
 
     /** Сохранить изменения, сделанные в объекте.  */
