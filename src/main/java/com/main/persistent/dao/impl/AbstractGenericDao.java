@@ -2,6 +2,8 @@ package com.main.persistent.dao.impl;
 
 import com.main.persistent.dao.GenericDao;
 import org.hibernate.Session;
+import org.hibernate.boot.model.relational.QualifiedName;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -14,47 +16,50 @@ public abstract class AbstractGenericDao<T, I extends Serializable> implements G
 
     private final Class<T> clazz;
 
+    @Qualifier("entityManagerFactory")
+    private EntityManager entityManager;
+
     public AbstractGenericDao(Class<T> clazz) {
         this.clazz = clazz;
     }
 
     @Override
     public Session session() {
-        return getEnttityManager().unwrap(Session.class);
+        return getEntityManager().unwrap(Session.class);
     }
 
     @Override
     public T getById(String id) {
-        return (T) getEnttityManager().find(clazz, id);
+        return (T) getEntityManager().find(clazz, id);
     }
 
     @Override
     public T getById(Long id) {
-        return (T) getEnttityManager().find(clazz, id);
+        return (T) getEntityManager().find(clazz, id);
     }
 
     @Override
     public List<T> getAll() {
-        CriteriaBuilder cb = getEnttityManager().getCriteriaBuilder();
+        CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery<T> cq = cb.createQuery(clazz);
-        TypedQuery<T> query =getEnttityManager().createQuery(cq.select(cq.from(clazz)));
+        TypedQuery<T> query = getEntityManager().createQuery(cq.select(cq.from(clazz)));
         return query.getResultList();
     }
 
     @Override
     public T persist(T entity) {
-        getEnttityManager().persist(entity);
+        getEntityManager().persist(entity);
         return entity;
     }
 
     @Override
     public void merge(T entity) {
-        getEnttityManager().merge(entity);
+        getEntityManager().merge(entity);
     }
 
     @Override
     public void delete(T entity) {
-        getEnttityManager().remove(entity);
+        getEntityManager().remove(entity);
     }
 
     @Override
@@ -64,11 +69,19 @@ public abstract class AbstractGenericDao<T, I extends Serializable> implements G
 
     @Override
     public long count() {
-        CriteriaBuilder cb = getEnttityManager().getCriteriaBuilder();
+        CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
         CriteriaQuery<Long> cq = cb.createQuery(Long.class);
         cq.select(cb.count(cq.from(clazz)));
-        return getEnttityManager().createQuery(cq).getSingleResult();
+        return getEntityManager().createQuery(cq).getSingleResult();
     }
 
-    protected abstract EntityManager getEnttityManager();
+//    protected abstract EntityManager getEntityManager();
+
+    @Override
+    protected EntityManager getEntityManager() {
+
+        return ;
+    }
+
+
 }

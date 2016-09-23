@@ -15,18 +15,14 @@ public class UserDaoImpl extends AbstractGenericDao<User, Long> implements UserD
 
     @Override
     public User getByUsername(String username) {
-//        CriteriaBuilder cb = getEnttityManager().getCriteriaBuilder();
+//        CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
 //        CriteriaQuery<User> cq = cb.createQuery(User.class);
 //
 //        Root<User> userRoot = cq.from(User.class);
 //        cq.where(cb.equal(userRoot.get(User_.username), username));
-//        TypedQuery<User> query = getEnttityManager().createQuery(cq.select(userRoot));
+//        TypedQuery<User> query = getEntityManager().createQuery(cq.select(userRoot));
 //        return query.getSingleResult();
 return null ;
     }
 
-    @Override
-    protected EntityManager getEnttityManager() {
-        return null;
-    }
 }
