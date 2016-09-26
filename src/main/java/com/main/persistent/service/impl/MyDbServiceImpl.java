@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class MyDbServiceImpl implements MyDbService {
@@ -30,8 +32,14 @@ public class MyDbServiceImpl implements MyDbService {
         user.setUserName(userName);
         user.setName("testName");
         user.setSurname("testSurname");
+//        user.setId(1L);
         userDao.persist(user);
         logger.info(" createNewUser exit ");
         return user;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userDao.getAll();
     }
 }

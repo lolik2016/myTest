@@ -1,10 +1,7 @@
 package com.main.persistent.model;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 //http://www.berdaflex.com/ru/java/articles/using_hibernate_java_persistence/ar01s02.html
 
@@ -16,6 +13,7 @@ import javax.persistence.Table;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
 
@@ -68,5 +66,16 @@ public class User {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
     }
 }

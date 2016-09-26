@@ -2,7 +2,6 @@ package com.main.persistent.dao.impl;
 
 import com.main.persistent.dao.GenericDao;
 import org.hibernate.Session;
-import org.hibernate.boot.model.relational.QualifiedName;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.persistence.EntityManager;
@@ -17,7 +16,7 @@ public abstract class AbstractGenericDao<T, I extends Serializable> implements G
 
     private final Class<T> clazz;
 
-    @PersistenceContext(unitName = "entityManagerFactoryMyDB")
+    @PersistenceContext(unitName = "myPC")
     @Qualifier("entityManagerFactoryMyDB")
     private EntityManager entityManager;
 

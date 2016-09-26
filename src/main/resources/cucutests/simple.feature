@@ -15,5 +15,7 @@ Feature: my first test
   @x2
   Scenario: db
     Given create new 'username' user
+    And create new 'pupkin' user
+    Then new user 'username' was created
 
 

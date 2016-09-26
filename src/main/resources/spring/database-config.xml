@@ -20,9 +20,16 @@
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+                <!--update create create-drop-->
+            </props>
+        </property>
+        <property name="persistenceUnitName" value="myPC"/>
     </bean>
 
-    <bean id="transactionManagerMyDB" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactoryMyDB"/>
     </bean>
 

@@ -9,9 +9,12 @@ import com.sample.commons.ScenarioContext;
 import com.sample.service.MyBrowserService;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+
+import java.util.List;
 
 //@SpringBootApplication(scanBasePackageClasses = {DemoApplication.class})
 @ContextConfiguration("classpath:spring/demoContext.xml")
@@ -49,8 +52,19 @@ public class StepsDefs extends AbstractStepsDefs {
     @Given("^create new '(.+)' user$")
     public void createNewUsernameUser(String username) throws Throwable {
 
-        User test = myDbService.createNewUser("test");
+        User test = myDbService.createNewUser(username);
         loggger.info("User: [{}]", test);
+
+    }
+
+    @Then("^new user '(.+)' was created$")
+    public void newUserUsernameWasCreated(String username){
+        List<User> list =  myDbService.getAllUsers();
+        loggger.info("all users");
+        list.forEach(x -> loggger.info("user: {}", x ));
+        loggger.info("stop");
+
+
 
     }
 }
