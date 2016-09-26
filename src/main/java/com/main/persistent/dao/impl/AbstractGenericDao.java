@@ -6,6 +6,7 @@ import org.hibernate.boot.model.relational.QualifiedName;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -16,7 +17,8 @@ public abstract class AbstractGenericDao<T, I extends Serializable> implements G
 
     private final Class<T> clazz;
 
-    @Qualifier("entityManagerFactory")
+    @PersistenceContext(unitName = "entityManagerFactoryMyDB")
+    @Qualifier("entityManagerFactoryMyDB")
     private EntityManager entityManager;
 
     public AbstractGenericDao(Class<T> clazz) {
@@ -77,10 +79,9 @@ public abstract class AbstractGenericDao<T, I extends Serializable> implements G
 
 //    protected abstract EntityManager getEntityManager();
 
-    @Override
     protected EntityManager getEntityManager() {
 
-        return ;
+        return entityManager;
     }
 
 

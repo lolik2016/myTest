@@ -16,13 +16,14 @@
 
     <bean id="entityManagerFactoryMyDB" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSourceMyDB"/>
-        <property name="packagesToScan" value="dataSourceMyDB"/>
+        <property name="packagesToScan" value="com.main.persistent"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
     </bean>
+
     <bean id="transactionManagerMyDB" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+        <property name="entityManagerFactory" ref="entityManagerFactoryMyDB"/>
     </bean>
 
     <!---->

@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src\\main\\resources\\cucutests\\simple.feature"},
-        tags = {"@x"},
+        tags = {"@x2"},
         glue = {"com.sample", "cucumber.api.spring"})
 public class runCuke {
 
