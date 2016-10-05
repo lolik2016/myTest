@@ -10,7 +10,7 @@
 		<module>scenarios</module>
 		<module>selenium</module>
 	</modules>-->
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
@@ -116,7 +116,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
+			<version>5.2.3.Final</version>
+		</dependency>
 	</dependencies>
 
 	<build>
