@@ -11,7 +11,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 @Repository
-public class UserDaoImpl extends AbstractGenericDao<User, Long> implements UserDao {
+public class UserDaoImpl  implements User {
 
     protected UserDaoImpl() {
         super(User.class);
